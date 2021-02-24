@@ -1,6 +1,5 @@
 package de.cubelegends.chestshoplogger;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -12,15 +11,19 @@ import de.cubelegends.chestshoplogger.db.DBHandler;
 import de.cubelegends.chestshoplogger.listeners.ChestShopListener;
 import de.cubelegends.chestshoplogger.listeners.JoinListener;
 
+import java.util.logging.Logger;
+import org.bukkit.Bukkit;
+
 import org.mcstats.Metrics;
 
 public class ChestShopLogger extends JavaPlugin {
 	
 	public static final String PREFIX = ChatColor.DARK_GREEN + "[ChestShopLogger] " + ChatColor.GRAY;
-	
+	private Logger log = Bukkit.getLogger();
 	private DBHandler db;
 	
 	public void onEnable() {
+            
 		
 		// Load config
 		this.getConfig().addDefault("general.metrics", true);
@@ -45,11 +48,14 @@ public class ChestShopLogger extends JavaPlugin {
 				);
 		Connection con = db.open();
 		if(con == null) {
+                        log.severe("[ChestShopLogger] Unable to connect to your database; check the config!");
+                        log.info("[ChestShopLogger] Note that Flatfile / SQLite storage is not currently supported.");
 			this.getServer().getPluginManager().disablePlugin(this);
 			return;
 		}
 		setupTables(con);
 		updateTables(con);
+                
 		try {
 			con.close();
 		} catch (SQLException e) {
@@ -64,7 +70,7 @@ public class ChestShopLogger extends JavaPlugin {
 		getCommand("shop").setExecutor(new CmdHandler(this));
 		
 		// Register metrics
-                int pluginId = 10453; // <-- Replace with the id of your plugin!
+                int pluginId = 10453;
                 Metrics metrics = new Metrics(this, pluginId);
 	}
 	
