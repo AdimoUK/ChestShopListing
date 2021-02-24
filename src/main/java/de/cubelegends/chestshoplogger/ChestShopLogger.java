@@ -29,6 +29,7 @@ public class ChestShopLogger extends JavaPlugin {
 		this.getConfig().addDefault("database.user", "root");
 		this.getConfig().addDefault("database.password", "");
 		this.getConfig().addDefault("database.database", "cslogger");
+                this.getConfig().addDefault("database.ssl", "false");
 		this.getConfig().addDefault("database.tableVersion", 2);
 		this.getConfig().options().copyDefaults(true);
 		this.saveConfig();
@@ -39,7 +40,8 @@ public class ChestShopLogger extends JavaPlugin {
 				this.getConfig().getInt("database.port"),
 				this.getConfig().getString("database.user"),
 				this.getConfig().getString("database.password"),
-				this.getConfig().getString("database.database")
+				this.getConfig().getString("database.database"),
+                                this.getConfig().getBoolean("database.ssl")
 				);
 		Connection con = db.open();
 		if(con == null) {
