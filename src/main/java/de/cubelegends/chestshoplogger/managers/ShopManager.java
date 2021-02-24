@@ -107,7 +107,7 @@ private ChestShopLogger plugin;
 			}
 			
 			shops = ShopModel.getShopsWitchOfferSell(plugin, itemName);
-			sender.sendMessage(ChatColor.DARK_GREEN + "========== Sell " + itemName + " ==========");
+			sender.sendMessage(ChatColor.DARK_GREEN + "========= Sell " + itemName + " =========");
 			break;
 			
 		case "buy":
@@ -120,7 +120,7 @@ private ChestShopLogger plugin;
 			}
 			
 			shops = ShopModel.getShopsWitchOfferBuy(plugin, itemName);
-			sender.sendMessage(ChatColor.DARK_GREEN + "========== Buy " + itemName + " ==========");
+			sender.sendMessage(ChatColor.DARK_GREEN + "========= Buy " + itemName + " =========");
 			break;
 			
 		case "player":
