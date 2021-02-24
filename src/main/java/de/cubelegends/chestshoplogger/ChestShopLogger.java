@@ -26,7 +26,6 @@ public class ChestShopLogger extends JavaPlugin {
             
 		
 		// Load config
-		this.getConfig().addDefault("general.metrics", true);
 		this.getConfig().addDefault("database.host", "localhost");
 		this.getConfig().addDefault("database.port", 3306);
 		this.getConfig().addDefault("database.user", "root");

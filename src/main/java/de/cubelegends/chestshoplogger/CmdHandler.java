@@ -40,7 +40,7 @@ public class CmdHandler implements CommandExecutor {
 			sm.coords(sender, args[1]);
 			return true;			
 		}
-		               
+		
                 if(args.length >= 3 && args[0].equalsIgnoreCase("find")) {
                     String[] matIn = args;
                     matIn = (String[]) ArrayUtils.remove(matIn, 0);
