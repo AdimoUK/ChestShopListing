@@ -7,9 +7,14 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import de.cubelegends.chestshoplogger.managers.ShopManager;
+import java.util.Arrays;
+import java.util.logging.Logger;
+import org.apache.commons.lang.ArrayUtils;
+import org.bukkit.Bukkit;
 
 public class CmdHandler implements CommandExecutor {
-	
+    
+        private Logger log = Bukkit.getLogger();
 	private ChestShopLogger plugin;
 	
 	public CmdHandler(ChestShopLogger plugin) {
@@ -35,11 +40,16 @@ public class CmdHandler implements CommandExecutor {
 			sm.coords(sender, args[1]);
 			return true;			
 		}
-		
-		if(args.length == 3 && args[0].equalsIgnoreCase("find")) {
-			sm.find(sender, args[1], args[2]);
-			return true;			
-		}
+		               
+                if(args.length >= 3 && args[0].equalsIgnoreCase("find")) {
+                    String[] matIn = args;
+                    matIn = (String[]) ArrayUtils.remove(matIn, 0);
+                    matIn = (String[]) ArrayUtils.remove(matIn, 0);
+                    String matOut = Arrays.toString(matIn).replaceAll("[,\\[\\]]", "");
+                                       
+                    sm.find(sender, args[1], matOut);
+                    return true;
+                }
 
         help(sender);
 		return true;

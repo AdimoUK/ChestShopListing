@@ -48,7 +48,9 @@ public class ChestShopLogger extends JavaPlugin {
 				);
 		Connection con = db.open();
 		if(con == null) {
+                        log.info("[ChestShopLogger]=======================================================");
                         log.severe("[ChestShopLogger] Unable to connect to your database; check the config!");
+                        log.info("[ChestShopLogger]=======================================================");
                         log.info("[ChestShopLogger] Note that Flatfile / SQLite storage is not currently supported.");
 			this.getServer().getPluginManager().disablePlugin(this);
 			return;
