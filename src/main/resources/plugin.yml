@@ -5,6 +5,7 @@ website: https://frd.mn/
 dev-url: https://github.com/the-lockedcraft-legacy-organization/ChestShopLogger
 main: de.cubelegends.chestshoplogger.ChestShopLogger
 depend: [ChestShop]
+api-version: 1.16
 
 commands:
   shop:
