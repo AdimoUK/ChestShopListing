@@ -3,7 +3,7 @@
         
     <groupId>de.cubelegends</groupId>
     <artifactId>ChestShopLogger</artifactId>
-    <version>0.2.23</version>
+    <version>0.2.28</version>
     <name>ChestShopLogger</name>
     <description>ChestShop transaction logger designed to provide a in-game shop search interface.</description>
         

@@ -1,6 +1,6 @@
 name: ChestShopLogger
 version: @version@
-authors: [Henning Storck, Jonas Friedmann, InteriorCamping]
+authors: [Henning Storck, ColorizedMind, Jonas Friedmann, InteriorCamping]
 website: https://frd.mn/
 dev-url: https://github.com/the-lockedcraft-legacy-organization/ChestShopLogger
 main: de.cubelegends.chestshoplogger.ChestShopLogger
