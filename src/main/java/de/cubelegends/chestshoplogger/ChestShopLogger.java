@@ -7,11 +7,12 @@ import java.sql.SQLException;
 
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.mcstats.Metrics;
 
 import de.cubelegends.chestshoplogger.db.DBHandler;
 import de.cubelegends.chestshoplogger.listeners.ChestShopListener;
 import de.cubelegends.chestshoplogger.listeners.JoinListener;
+
+import org.mcstats.Metrics;
 
 public class ChestShopLogger extends JavaPlugin {
 	
@@ -27,7 +28,7 @@ public class ChestShopLogger extends JavaPlugin {
 		this.getConfig().addDefault("database.port", 3306);
 		this.getConfig().addDefault("database.user", "root");
 		this.getConfig().addDefault("database.password", "");
-		this.getConfig().addDefault("database.database", "bukkit");
+		this.getConfig().addDefault("database.database", "cslogger");
 		this.getConfig().addDefault("database.tableVersion", 2);
 		this.getConfig().options().copyDefaults(true);
 		this.saveConfig();
@@ -60,16 +61,9 @@ public class ChestShopLogger extends JavaPlugin {
 		// Register command executor
 		getCommand("shop").setExecutor(new CmdHandler(this));
 		
-		// Plugin metrics
-		if(this.getConfig().getBoolean("general.metrics")) {
-			try {
-			    Metrics metrics = new Metrics(this);
-			    metrics.start();
-			} catch (IOException e) {
-			    // Failed to submit the stats :-(
-			}
-		}
-		
+		// Register metrics
+                int pluginId = 10453; // <-- Replace with the id of your plugin!
+                Metrics metrics = new Metrics(this, pluginId);
 	}
 	
 	public void onDisable() {
