@@ -3,7 +3,7 @@ With ChestShopLogger you can log all your ChestShops into a MySQL database.
 The transaction data (if someone buys or sells something in a shop) is also logged into the database.
 You can use this data for your own plugins or for a web interface, for example.
 
-# Credits go to the previous authors;
+## Acknowledgements
 - @[ColorizedMind](https://github.com/ColorizedMind)
 - @[frdmn](https://github.com/frdmn)
 - @Henning Storck
