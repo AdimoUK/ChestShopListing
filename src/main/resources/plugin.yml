@@ -1,8 +1,8 @@
 name: ChestShopLogger
-version: 0.1.8
-author: Commander_Keks
-website: http://www.cubelegends.de
-dev-url: http://dev.bukkit.org/bukkit-plugins/chestshoplogger/
+version: @version@
+authors: [Henning Storck, Jonas Friedmann, InteriorCamping]
+website: https://frd.mn/
+dev-url: https://github.com/the-lockedcraft-legacy-organization/ChestShopLogger
 main: de.cubelegends.chestshoplogger.ChestShopLogger
 depend: [ChestShop]
 
